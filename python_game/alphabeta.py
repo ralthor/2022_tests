@@ -60,7 +60,7 @@ class AlphaBeta:
         if alpha is None:
             alpha = ScorePair(-1, 0, max_depth=self._max_depth)
             beta = ScorePair(1, 0, max_depth=self._max_depth)
-        if self.game.game_over:
+        if self.game.game_over or depth >= self._max_depth:
             return ScorePair(self.game.evaluate(), depth, max_depth=self._max_depth)
         best_score = ScorePair(self.game.min_evaluation_value(), depth, max_depth=self._max_depth)
         for move in self.game.next_move():
@@ -82,7 +82,7 @@ class AlphaBeta:
         if alpha is None:
             alpha = ScorePair(-1, 0, max_depth=self._max_depth)
             beta = ScorePair(1, 0, max_depth=self._max_depth)
-        if self.game.game_over:
+        if self.game.game_over or depth >= self._max_depth:
             return ScorePair(self.game.evaluate(), depth, max_depth=self._max_depth)
         best_score = ScorePair( self.game.max_evaluation_value(), depth, max_depth=self._max_depth)
         for move in self.game.next_move():

@@ -139,3 +139,9 @@ class Connect4Game(AdversarialGame):
     
     def copy(self):
         return Connect4Game(self)
+    
+    @property
+    def _other_player(self):
+        return 2 if self.player == 1 else 1
+
+

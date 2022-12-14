@@ -86,6 +86,23 @@ def test_ai():
     print(game)
 
 
+def test_connect4_ai():
+    game = Connect4Game()
+    game.board = [
+        [None, None, None],
+        [2, 2, None],
+        [1, 1, None],
+        [1, 2, None],
+    ]
+    game.columns = len(game.board)
+    game.rows = len(game.board[0])
+    game.player = 1
+    game.moves = 6
+    move = AlphaBeta(game, verbose=True).move_for_player_1()
+    game.play(move)
+    print(game)
+
+
 if __name__ == "__main__":
     # play_with_ai(player=1, solver_class=AlphaBeta)
     play_with_friend(game_class=Connect4Game, game_move_callable=next_connect4_move_player)

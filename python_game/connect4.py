@@ -135,6 +135,9 @@ class Connect4Game(AdversarialGame):
                 else:
                     s += "O"
             s += "\n"
+        s += "-" * self.columns + "\n"
+        s += "".join(str(i) for i in range(self.columns))
+        s += "\n"
         return s
     
     def copy(self):
@@ -145,3 +148,30 @@ class Connect4Game(AdversarialGame):
         return 2 if self.player == 1 else 1
 
 
+def player_character(player: int):
+    return "X" if player == 1 else "O"
+
+
+def test_connect4():
+    game = Connect4Game()
+    print(game)
+
+    moves = [0, 0, 1, 1, 2, 2, 3]
+    for move in moves:
+        print(f"Player {player_character(game.player)} plays {move}")
+        game.play(Connect4Move(move))
+        print(game)
+
+    try:
+        game.play(Connect4Move(moves[-1]))
+    except GameOverException:
+        print("Game over")
+
+    for move in moves[::-1]:
+        game.unplay(Connect4Move(move))
+        print(f"Player {player_character(game.player)} unplays {move}")
+        print(game)
+
+
+if __name__ == "__main__":
+    test_connect4()

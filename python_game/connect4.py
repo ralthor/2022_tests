@@ -74,9 +74,12 @@ class Connect4Game(AdversarialGame):
         col = move.col
         if self.moves == 0:
             raise InvalidMoveException("Invalid move")
-        for i in range(self.rows):
-            if self.board[col][i] is not None:
-                self.board[col][i] = None
+        for i, cell in enumerate(self.board[col][::-1]):
+            if cell is not None:
+                if (self.game_over and cell != self._other_player or
+                    not self.game_over and cell != self._other_player):
+                    raise InvalidMoveException("Invalid move")
+                self.board[col][self.rows - i - 1] = None
                 break
         else:
             raise InvalidMoveException("Invalid move")

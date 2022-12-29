@@ -1,0 +1,37 @@
+This file answers questions about msys2 and mingw64, cmake, g++, etc.
+
+Q: I have install msys2 and mingw64, but I cannot find cmake.exe
+A: You need to install cmake from msys2. Open msys2 and type pacman -S cmake
+
+Q: I have installed cmake using pacman -S cmake, but I cannot find it in the command line
+A: You need to add cmake to your path. Open msys2 and type export PATH=$PATH:/mingw64/bin
+
+Q: I have added mingw64 to my path in environment variables, but PATH is the same in msys2
+A: You need to add mingw64 to your path in msys2. Open msys2 and type export PATH=$PATH:/mingw64/bin
+
+Q: How to remove a package from msys2
+A: Open msys2 and type pacman -R package_name
+
+Q: What is my mingw64 path
+A: it is /c/msys64/mingw64/
+
+Q: How to check which shell I am using
+A: echo $SHELL
+
+Q: How to check which shell I am using in msys2
+A: echo $MSYSTEM
+
+Q: Why /usr in msys2 is different from /usr in mingw64
+A: /usr in msys2 is a symlink to /mingw64/usr
+
+Q: How to install cmake in mingw64
+A: pacman -S mingw-w64-x86_64-cmake
+
+Q: How to use cmake in mingw64
+A: run cmake -G "MinGW Makefiles" -S . -B . -DCMAKE_INSTALL_PREFIX=/c/msys64/mingw64
+
+Q: What command should be run after above command?
+A: mingw32-make all
+
+Q: How to add include path in g++?
+A: g++ -I /c/msys64/mingw64/include

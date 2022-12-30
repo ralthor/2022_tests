@@ -10,9 +10,13 @@
         "${file}",
         "-o",
         "${fileDirname}\\${fileBasenameNoExtension}.exe",
-        "-lfreeglut",
+        "-I${workspaceFolder}\\cpp\\include",
+        // "-lfreeglut",
+        // "-lopengl32",
+        // "-lglu32",
+        "-lglfw3",
         "-lopengl32",
-        "-lglu32"
+        "-lgdi32"
       ],
       "options": {
         "cwd": "${fileDirname}"

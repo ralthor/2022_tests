@@ -12,7 +12,7 @@
         "${file}",
         "glad.c",
         "-o",
-        "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
         "-lglfw3",
         "-lopengl32",
         "-lgdi32"

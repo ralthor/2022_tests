@@ -109,7 +109,7 @@ if __name__ == "__main__":
         solver_class=AlphaBeta,
         solver_class_params={"max_depth": 6, "verbose": True},
         game_class=Connect4Game,
-        game_class_params={"columns": 6, "rows": 7},
+        game_class_params={"columns": 7, "rows": 6},
         game_move_callable=next_connect4_move_player,
     )
     # play_with_friend(game_class=Connect4Game, game_move_callable=next_connect4_move_player)
